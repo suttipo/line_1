@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     public void start(Stage window){
     
-        //create X axis and Y charts
+        //create X axis and Y axis to line charts
         NumberAxis xAxis = new NumberAxis(2006, 2018, 2);
         NumberAxis yAxis = new NumberAxis(0, 100, 10);
 
