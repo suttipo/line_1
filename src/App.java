@@ -12,20 +12,20 @@ public class App extends Application {
     public void start(Stage window){
     
         //create X axis and Y charts
-        NumberAxis xAxis = new NumberAxis(2000, 2020, 5);
-        NumberAxis yAxis = new NumberAxis(40, 80, 4);
+        NumberAxis xAxis = new NumberAxis(2006, 2018, 2);
+        NumberAxis yAxis = new NumberAxis(0, 100, 10);
 
         //label for title
         xAxis.setLabel("Year");
-        yAxis.setLabel("The University of Helsinki Ranking");
+        yAxis.setLabel("Ranking");
 
         //create line chart with xAxis and yAxis
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
-        lineChart.setTitle("Shanghai Ranking Consultancy");
-
+        lineChart.setTitle("University of Helsinki, Shanghai Ranking");
+        lineChart.setLegendVisible(false);//disable label name of data 
         //create data for add to line chart
         XYChart.Series<Number,Number> rankData = new XYChart.Series<>();
-        rankData.setName("Hel");
+        //rankData.setName("Hel");
 
         rankData.getData().add(new XYChart.Data<>(2007, 73));
         rankData.getData().add(new XYChart.Data<>(2008, 68));
