@@ -1,55 +1,46 @@
+//import java.util.Scanner;
+
 import javafx.application.Application;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-//import javafx.scene.control.Label;
+//import javafx.scene.Scene;
+//import javafx.scene.chart.LineChart;
+//import javafx.scene.chart.NumberAxis;
+//import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 //import javafx.scene.layout.BorderPane;
 //import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class App extends Application {
     public void start(Stage window){
-    
-        //create X axis and Y axis to line charts
-        NumberAxis xAxis = new NumberAxis(2006, 2018, 2);
-        NumberAxis yAxis = new NumberAxis(0, 100, 10);
-
-        //label for title
-        xAxis.setLabel("Year");
-        yAxis.setLabel("Ranking");
-
-        //create line chart with xAxis and yAxis
-        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
-        lineChart.setTitle("University of Helsinki, Shanghai Ranking");
-        lineChart.setLegendVisible(false);//disable label name of data 
-        //create data for add to line chart
-        XYChart.Series<Number,Number> rankData = new XYChart.Series<>();
-        //rankData.setName("Hel");
-
-        rankData.getData().add(new XYChart.Data<>(2007, 73));
-        rankData.getData().add(new XYChart.Data<>(2008, 68));
-        rankData.getData().add(new XYChart.Data<>(2009, 72));
-        rankData.getData().add(new XYChart.Data<>(2010, 72));
-        rankData.getData().add(new XYChart.Data<>(2011, 74));
-        rankData.getData().add(new XYChart.Data<>(2012, 73));
-        rankData.getData().add(new XYChart.Data<>(2013, 76));
-        rankData.getData().add(new XYChart.Data<>(2014, 73));
-        rankData.getData().add(new XYChart.Data<>(2015, 67));
-        rankData.getData().add(new XYChart.Data<>(2016, 56));
-        rankData.getData().add(new XYChart.Data<>(2017, 56));
-
-        //add data to line chart
-        lineChart.getData().add(rankData);
-
-        Scene scene = new Scene(lineChart, 640, 480);
-        //use css file in to java
-        scene.getStylesheets().add("app.css");
-        //window.setTitle("Test JavFx");
+        LineChart1 lineChart1 = new LineChart1();
+        BorderPane main = new BorderPane();
+        VBox menu = new VBox();
+        Label one = new Label("1 Line Chart.");
+        Label two = new Label("0 EXIT.");
+        TextField select = new TextField();
+        select.setOnAction(e -> {
+            String n = select.getText();
+            System.out.println(n);
+            if(n.equals("1")){
+                //System.out.println(num);
+                main.setCenter(lineChart1.start());
+                select.clear();
+            }
+        });
+        menu.getChildren().addAll(one, two, select);
+        main.setTop(menu);
+        Scene scene = new Scene(main, 700, 800);
         window.setScene(scene);
         window.show();
+        
+        //window.show();
     }
-    public static void main(String[] args) throws Exception {
+    
+    public static void main(String[] args) {
         //System.out.println("Hello, World!");
         launch(args);
     }
