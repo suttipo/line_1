@@ -1,0 +1,8 @@
+.root{
+    background-color: aquamarine;/*use before javafx property*/
+    /*javafx property*/
+    -fx-background-color: aquamarine;
+    -fx-font-size: 20px;
+    -fx-line-spacing: 2;
+    -fx-padding: 15px;
+}

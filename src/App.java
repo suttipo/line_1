@@ -43,6 +43,8 @@ public class App extends Application {
         lineChart.getData().add(rankData);
 
         Scene scene = new Scene(lineChart, 640, 480);
+        //use css file in to java
+        scene.getStylesheets().add("app.css");
         //window.setTitle("Test JavFx");
         window.setScene(scene);
         window.show();
