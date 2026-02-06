@@ -1,5 +1,7 @@
 //import java.util.Scanner;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -17,10 +19,14 @@ import javafx.stage.Stage;
 public class App extends Application {
     public void start(Stage window){
         LineChart1 lineChart1 = new LineChart1();
+        Multilinechart multilinechart = new Multilinechart();
         BorderPane main = new BorderPane();
         VBox menu = new VBox();
+
         Label one = new Label("1 Line Chart.");
-        Label two = new Label("0 EXIT.");
+        Label second = new Label("2 Multi line chart.");
+        Label tird = new Label("0 EXIT.");
+
         TextField select = new TextField();
         select.setOnAction(e -> {
             String n = select.getText();
@@ -29,9 +35,16 @@ public class App extends Application {
                 //System.out.println(num);
                 main.setCenter(lineChart1.start());
                 select.clear();
+            }else if(n.equals("2")){
+                try {
+                    main.setCenter(multilinechart.getLineChart());
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             }
         });
-        menu.getChildren().addAll(one, two, select);
+        menu.getChildren().addAll(one, second, tird, select);
         main.setTop(menu);
         Scene scene = new Scene(main, 700, 800);
         window.setScene(scene);
@@ -40,8 +53,10 @@ public class App extends Application {
         //window.show();
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //System.out.println("Hello, World!");
+        Multilinechart test = new Multilinechart();
+        test.getLineChart();
         launch(args);
     }
 }
