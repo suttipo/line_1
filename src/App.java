@@ -38,6 +38,7 @@ public class App extends Application {
             }else if(n.equals("2")){
                 try {
                     main.setCenter(multilinechart.getLineChart());
+                    select.clear();
                 } catch (IOException e1) {
                     
                     e1.printStackTrace();
