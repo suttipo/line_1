@@ -25,6 +25,8 @@ public class Multilinechart {
             String text;
             // Skip the header line if the file has one
             String header = reader.readLine(); 
+            header = "";
+            System.out.println(header);
             // System.out.println(text);
             // reader.readLine();
             while ((text = reader.readLine()) != null) {
