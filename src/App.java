@@ -39,7 +39,7 @@ public class App extends Application {
                 try {
                     main.setCenter(multilinechart.getLineChart());
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
+                    
                     e1.printStackTrace();
                 }
             }
@@ -55,8 +55,7 @@ public class App extends Application {
     
     public static void main(String[] args) throws IOException {
         //System.out.println("Hello, World!");
-        Multilinechart test = new Multilinechart();
-        test.getLineChart();
+        
         launch(args);
     }
 }

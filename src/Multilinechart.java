@@ -6,8 +6,7 @@ import java.io.IOException;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart;
+
 
 public class Multilinechart {
 
@@ -26,21 +25,21 @@ public class Multilinechart {
         try (BufferedReader reader = new BufferedReader(fileToread)) {
             String text;
             //System.out.println(text);
-            reader.readLine();
+           // reader.readLine();
             while ((text = reader.readLine()) != null){
 
                 XYChart.Series<Number, Number> data = new XYChart.Series<>();
-                String text = reader.readLine();
+                text = reader.readLine();
                 String[] arrayText = text.split("\\t");
                 
                 for(int i = 0; i < arrayText.length; i++){
                     int years = 1968 + (i * 4);
                     if(i == 0){
                         data.setName(arrayText[i]);
-                    } elese if(arrayText[i].equals("-") ){
+                    } else if(arrayText[i].equals("-") ){
                         continue;
-                    } elese{
-                        data.getData().add(new XYChart.data<>(years,Double.valueOf(arrayText[i])));
+                    }else{
+                        data.getData().add(new XYChart.Data<>(years,Double.valueOf(arrayText[i])));
                     }
                 }
                 lineChart.getData().add(data);
