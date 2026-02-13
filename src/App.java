@@ -3,6 +3,7 @@
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
@@ -27,32 +28,37 @@ public class App extends Application {
         Label one = new Label("1 Line Chart.");
         Label second = new Label("2 Multi line chart.");
         Label third  = new Label("3 Slider and line chart.");
-        //Label exit = new Label("0 EXIT.");
+        Label exit = new Label("0 EXIT.");
 
         TextField select = new TextField();
         select.setOnAction(e -> {
-            String n = select.getText();
+            String n = select.getText().trim();
             System.out.println(n);
             if(n.equals("1")){
                 //System.out.println(num);
                 main.setCenter(lineChart1.start());
                 select.clear();
             }else if(n.equals("2")){
-                try {
+                try{
                     main.setCenter(multilinechart.getLineChart());
                     select.clear();
-                } catch (IOException e1) {
-                    
-                    e1.printStackTrace();
+                }catch(IOException event){
+                    event.printStackTrace();
                 }
+                
             }else if(n.equals("3")){
                 
                     main.setCenter(sliderLinechart.getSliderLineChart());
                     select.clear();
                 
+            }else if(n.equals("0")){
+                // Use runLater to ensure the exit happens after the event cycle
+                Platform.runLater(Platform::exit);
             }
+            // CRITICAL: Put the cursor back in the box so you don't have to click it again
+            select.requestFocus();
         });
-        menu.getChildren().addAll(one, second, third, select);
+        menu.getChildren().addAll(one, second, third, exit, select);
         main.setTop(menu);
         Scene scene = new Scene(main, 700, 800);
         window.setScene(scene);
