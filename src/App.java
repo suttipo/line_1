@@ -20,12 +20,14 @@ public class App extends Application {
     public void start(Stage window){
         LineChart1 lineChart1 = new LineChart1();
         Multilinechart multilinechart = new Multilinechart();
+        sliderLinechart sliderLinechart = new sliderLinechart();
         BorderPane main = new BorderPane();
         VBox menu = new VBox();
 
         Label one = new Label("1 Line Chart.");
         Label second = new Label("2 Multi line chart.");
-        Label tird = new Label("0 EXIT.");
+        Label third  = new Label("3 Slider and line chart.");
+        //Label exit = new Label("0 EXIT.");
 
         TextField select = new TextField();
         select.setOnAction(e -> {
@@ -43,9 +45,14 @@ public class App extends Application {
                     
                     e1.printStackTrace();
                 }
+            }else if(n.equals("3")){
+                
+                    main.setCenter(sliderLinechart.getSliderLineChart());
+                    select.clear();
+                
             }
         });
-        menu.getChildren().addAll(one, second, tird, select);
+        menu.getChildren().addAll(one, second, third, select);
         main.setTop(menu);
         Scene scene = new Scene(main, 700, 800);
         window.setScene(scene);
