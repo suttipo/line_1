@@ -29,6 +29,7 @@ public class sliderLinechart {
         slider1.setMajorTickUnit(25);
         slider1.setMinorTickCount(4);
         slider1.setSnapToTicks(true);
+        slider1.setBlockIncrement(1);
         //add label slider1 on monthSaving
         monthSaving.setLeft(labelMonthSaving);
         monthSaving.setCenter(slider1);
@@ -42,15 +43,16 @@ public class sliderLinechart {
         Label labelYearInterestRate = new Label( "Yearly interest rate");
         
         // Create the Slider2 (min, max, initial value)
-        Slider slider2 = new Slider(0, 10, 1);
+        Slider slider2 = new Slider(0, 10, 0);
         //Create a Label to display the current value
         Label rate = new Label(String.valueOf(slider2.getValue()));
         //set property of 2
         slider2.setShowTickMarks(true);//set show tick marks ขีด
         slider2.setShowTickLabels(true);
         slider2.setMajorTickUnit(1);
-        slider2.setMinorTickCount(10);
+        slider2.setMinorTickCount(9);
         slider2.setSnapToTicks(true);
+        slider2.setBlockIncrement(.1);
         //add a ChangeListener to react to value change
         slider2.valueProperty().addListener((observable, oldValue, newValue) -> {
             rate.setText(String.valueOf(newValue) + "%");
