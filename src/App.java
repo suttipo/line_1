@@ -60,7 +60,7 @@ public class App extends Application {
         });
         menu.getChildren().addAll(one, second, third, exit, select);
         main.setTop(menu);
-        Scene scene = new Scene(main, 700, 800);
+        Scene scene = new Scene(main, 640, 480);//700, 800
         window.setScene(scene);
         window.show();
         
