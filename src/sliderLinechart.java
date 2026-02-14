@@ -33,7 +33,10 @@ public class sliderLinechart {
         monthSaving.setLeft(labelMonthSaving);
         monthSaving.setCenter(slider1);
         monthSaving.setRight(month);
-
+        //  Add a ChangeListener to react to value changes
+        slider1.valueProperty().addListener((observable, oldValue, newValue) -> {
+            month.setText(String.valueOf(newValue));
+        });
         BorderPane yearInterestRate = new BorderPane();
         yearInterestRate.setPadding(new Insets(10));
         Label labelYearInterestRate = new Label( "Yearly interest rate");
@@ -48,6 +51,10 @@ public class sliderLinechart {
         slider2.setMajorTickUnit(1);
         slider2.setMinorTickCount(10);
         slider2.setSnapToTicks(true);
+        //add a ChangeListener to react to value change
+        slider2.valueProperty().addListener((observable, oldValue, newValue) -> {
+            rate.setText(String.valueOf(newValue) + "%");
+        });
         //add label slider2 on yearInterestRate borderpane
         yearInterestRate.setLeft(labelYearInterestRate);
         yearInterestRate.setCenter(slider2);
